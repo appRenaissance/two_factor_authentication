@@ -1,3 +1,7 @@
+# FORKED from the original to support Devise 2.1.3
+
+* removed usage of find_message which isn't supported in devise <2.2.4
+
 # Two factor authentication for Devise
 
 [![Build Status](https://travis-ci.org/Houdini/two_factor_authentication.svg?branch=master)](https://travis-ci.org/Houdini/two_factor_authentication)
