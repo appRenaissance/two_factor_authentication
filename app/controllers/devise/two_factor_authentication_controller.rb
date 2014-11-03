@@ -17,7 +17,7 @@ class Devise::TwoFactorAuthenticationController < DeviseController
     else
       resource.second_factor_attempts_count += 1
       resource.save
-      flash.now[:error] = find_message(:attempt_failed)
+      flash.now[:error] = "Incorrect authentication code. Please try again."
       if resource.max_login_attempts?
         sign_out(resource)
         render :max_login_attempts_reached
