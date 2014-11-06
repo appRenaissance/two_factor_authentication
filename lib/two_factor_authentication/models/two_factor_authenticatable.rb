@@ -25,7 +25,7 @@ module Devise
 
       module InstanceMethodsOnActivation
         def authenticate_otp(code, options)
-          totp = ROTP::TOTP.new(self.otp_column, {digits: 8})
+          totp = ROTP::TOTP.new(self.otp_column)
           drift = options[:drift] || self.class.allowed_otp_drift_seconds
 
           totp.verify_with_drift(code, drift)
