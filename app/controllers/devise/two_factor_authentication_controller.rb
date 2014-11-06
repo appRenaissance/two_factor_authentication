@@ -12,7 +12,7 @@ class Devise::TwoFactorAuthenticationController < DeviseController
       warden.session(resource_name)[TwoFactorAuthentication::NEED_AUTHENTICATION] = false
       sign_in resource_name, resource, :bypass => true
       set_flash_message :notice, :success
-      redirect_to stored_location_for(resource_name) || :root
+      redirect_to stored_location_for(resource_name) || '/'
       resource.update_attribute(:second_factor_attempts_count, 0)
     else
       resource.second_factor_attempts_count += 1
