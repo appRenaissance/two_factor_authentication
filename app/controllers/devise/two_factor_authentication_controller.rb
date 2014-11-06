@@ -34,7 +34,7 @@ class Devise::TwoFactorAuthenticationController < DeviseController
     end
 
     def prepare_and_validate
-      redirect_to :root and return if resource.nil?
+      redirect_to '/' and return if resource.nil?
       @limit = resource.max_login_attempts
       if resource.max_login_attempts?
         sign_out(resource)
