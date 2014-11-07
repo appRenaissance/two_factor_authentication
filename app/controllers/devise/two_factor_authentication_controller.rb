@@ -14,6 +14,7 @@ class Devise::TwoFactorAuthenticationController < DeviseController
       set_flash_message :notice, :success
       redirect_to stored_location_for(resource_name) || '/'
       resource.update_attribute(:second_factor_attempts_count, 0)
+      resource.enable_two_factor  #resets the otp secret so code can't be used again
     else
       resource.second_factor_attempts_count += 1
       resource.save
